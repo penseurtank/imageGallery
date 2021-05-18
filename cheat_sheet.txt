@@ -1,0 +1,69 @@
+Create a new branch with git and manage branche
+===============================================
+When you do a pull request on a branch, you can continue to work on another branch and make another pull request on this other branch.
+Before creating a new branch, pull the changes from upstream. Your master needs to be up to date.
+$ git pull
+
+Create the branch on your local machine and switch in this branch :
+$ git checkout -b [name_of_your_new_branch]
+
+Push the branch on github :
+$ git push origin [name_of_your_new_branch]
+
+When you want to commit something in your branch, be sure to be in your branch. Add -u parameter to set-upstream.
+You can see all the branches created by using :
+$ git branch -a
+
+Which will show :
+* approval_messages
+  master
+  master_clean
+
+Add a new remote for your branch :
+$ git remote add [name_of_your_remote] [name_of_your_new_branch]
+
+Push changes from your commit into your branch :
+$ git push [name_of_your_new_remote] [url]
+
+Update your branch when the original branch from official repository has been updated :
+$ git fetch [name_of_your_remote]
+
+Then you need to apply to merge changes if your branch is derivated from develop you need to do :
+$ git merge [name_of_your_remote]/develop
+
+Delete a branch on your local filesystem :
+$ git branch -d [name_of_your_new_branch]
+
+To force the deletion of local branch on your filesystem :
+$ git branch -D [name_of_your_new_branch]
+
+Delete the branch on github :
+$ git push origin :[name_of_your_new_branch]
+
+Following are basic command to setup your git repo...
+echo "# imageGallery" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/penseurtank/imageGallery.git
+git push -u origin main
+
+#Cheat Sheet for git command.
+1. Know you branch
+git branch
+
+2. Know your all branch which is related to current repo.
+git branch -a
+
+3. To add signle file or multiple file through git command.
+adding single file...
+git add <file_name>
+git add index.js
+
+adding multiple file...
+git add <dot: . > here dot(.) represents all new file which never been added before.
+git add .
+
+4. If you are add any file in your local projects and the time of taking pull if it is not able take pull scuessfully then apply stash command. So Stash command will remove all local change, till last pull request.
+git stash
